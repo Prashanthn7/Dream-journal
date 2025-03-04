@@ -17,8 +17,9 @@ public class Dream {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "user_id")
-    private String userId;
+    @ManyToOne
+    @JoinColumn(name = "userId")
+    private User user;
 
     @Column(name ="dream_text")
     private String dreamText;
@@ -26,6 +27,7 @@ public class Dream {
     @Column(name="recorded_at")
     private LocalDate recordedAt;
 
+    @PrePersist
     public void prePersist(){
         this.recordedAt = LocalDate.now();
     }

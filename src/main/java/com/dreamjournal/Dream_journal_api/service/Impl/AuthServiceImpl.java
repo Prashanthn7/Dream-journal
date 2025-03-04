@@ -8,6 +8,7 @@ import com.dreamjournal.Dream_journal_api.repository.UserRepository;
 import com.dreamjournal.Dream_journal_api.service.AuthService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.jmx.export.notification.UnableToSendNotificationException;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -25,6 +26,13 @@ public class AuthServiceImpl implements AuthService {
         userMapper.mapToUserEntity(user,registrationRequest);
         userRepository.save(user);
         return userMapper.mapToUserResponse(user);
+    }
+
+    @Override
+    public UserResponse findUserById(Long userId) {
+    User user = userRepository.findById(userId).orElseThrow(()-> new UnableToSendNotificationException("Couldnt Find User By Id"));
+    return userMapper.mapToUserResponse(user);
+
     }
 
 

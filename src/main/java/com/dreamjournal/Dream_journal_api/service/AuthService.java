@@ -6,4 +6,6 @@ import com.dreamjournal.Dream_journal_api.model.User;
 
 public interface AuthService {
     public UserResponse registerUser(RegistrationRequest registrationRequest);
+
+    UserResponse findUserById(Long userId);
 }
