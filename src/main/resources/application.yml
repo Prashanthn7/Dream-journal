@@ -1,1 +1,13 @@
-spring.application.name=Dream-journal-api
+server:
+  port: 8086
+spring:
+  application:
+    name: dream-journal-analysis-api
+  datasource:
+    url: jdbc:mysql://localhost:3306/dream-journal-analysisdb?createDatabaseIfNotExist=true
+    username: root
+    password: Prashanth@123
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
