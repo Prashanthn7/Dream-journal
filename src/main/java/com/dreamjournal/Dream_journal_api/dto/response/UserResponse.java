@@ -12,7 +12,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserResponse {
-    private long userId;
+    private long id;
     private String username;
     private LocalDate recordedAt;
 }

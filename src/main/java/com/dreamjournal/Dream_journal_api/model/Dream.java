@@ -29,6 +29,7 @@ public class Dream {
 
     @PrePersist
     public void prePersist(){
+
         this.recordedAt = LocalDate.now();
     }
 }

@@ -15,18 +15,18 @@ import org.springframework.web.bind.annotation.*;
 @AllArgsConstructor
 public class AuthController {
 
-    private final AuthService userService;
+    private final AuthService authService;
 
     @PostMapping("/register")
     public ResponseEntity<ResponseStructure<UserResponse>> registerUser(@RequestBody RegistrationRequest registrationRequest){
-        UserResponse response = userService.registerUser(registrationRequest);
+        UserResponse response = authService.registerUser(registrationRequest);
 
         return ResponseBuilder.success(HttpStatus.CREATED,"User Created",response);
     }
 
-    @GetMapping("/{userId}")
-    public ResponseEntity<ResponseStructure<UserResponse>> findUserbyId(@PathVariable Long userId){
-        UserResponse response = userService.findUserById(userId);
+    @GetMapping("/{id}")
+    public ResponseEntity<ResponseStructure<UserResponse>> findUserById(@PathVariable Long id){
+        UserResponse response = authService.findUserById(id);
 
         return ResponseBuilder.success(HttpStatus.OK,"User Found",response);
     }
