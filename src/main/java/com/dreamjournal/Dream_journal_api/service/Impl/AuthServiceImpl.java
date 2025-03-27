@@ -25,8 +25,8 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public UserResponse findUserById(Long userId) {
-    User user = userRepository.findById(userId).orElseThrow(()-> new UserNotFoundByIdException("Couldnt Find User By Id"));
+    public UserResponse findUserById(Long id) {
+    User user = userRepository.findById(id).orElseThrow(()-> new UserNotFoundByIdException("Couldnt Find User By Id"));
     return userMapper.mapToUserResponse(user);
 
     }

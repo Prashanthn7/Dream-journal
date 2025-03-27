@@ -35,7 +35,6 @@ public class FieldErrorExceptionHandler extends ResponseEntityExceptionHandler {
                 .errors(errors)
                 .build();
         return error;
-
     }
 
     private FieldErrorResponse.CustomFieldError createFieldError(FieldError fieldError) {

@@ -1,9 +1,7 @@
 package com.dreamjournal.Dream_journal_api.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
@@ -17,12 +15,16 @@ public class CareerSuggestion {
     @Column(name="career_id")
     private Long id;
 
-    @Column(name = "user_id")
-    private String userId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 
     @Column(name ="suggested_career")
     private String suggestedCareer;
 
     @Column(name="confidence_score")
     private double confidenceScore;
+
+    @Column(name = "courses")
+    private String courses;
 }
